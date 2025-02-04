@@ -30,10 +30,11 @@ export const getFunFact=async (num:number):Promise<string> => {
 
     try {
         const response = await  axios.get(`http://numbersapi.com/${num}/math`);
-        return response.data;
+        return response.data.text;
 
         
     } catch (error) {
+           console.error("Error fetching fun fact:", error);
             return  "no fun fact available";
         
     }
